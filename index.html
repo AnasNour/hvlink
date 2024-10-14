@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #1e90ff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar h1 {
+            color: white;
+            margin: 0;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .toolbar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #0073e6;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+        .toolbar a:hover {
+            background-color: #005bb5;
+        }
+
+        .container {
+            width: 100%;
+            height: calc(85vh - 60px); /* Increased height by 5% */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        .container img {
+            width: 85%; /* Increased image width */
+            height: auto;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .action-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-box a {
+            text-decoration: none;
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .action-box a:hover {
+            background-color: #005bb5;
+        }
+
+        /* GPT pop-up window */
+        .gpt-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border: 2px solid #1e90ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gpt-popup-header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .gpt-popup-body {
+            padding: 15px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .gpt-popup-footer {
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .gpt-popup-footer input {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .gpt-popup-footer button {
+            padding: 8px 16px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .gpt-popup-footer button:hover {
+            background-color: #005bb5;
+        }
+
+        .gpt-open-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>Welcome to Students</h1>
+        <div class="toolbar">
+            <a href="index.html">HOME</a>
+            <a href="programs.html">PROGRAMS</a>
+            <a href="books.html">BOOKS</a>
+            <a href="profile.html">PROFILE</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <img src="HV-df4fb47b-large-contained.jpeg" alt="University Building">
+
+        <div class="action-box">
+            <a href="signup.html">Sign up</a>
+            <a href="login.html">Login</a> <!-- Correct link for login page -->
+        </div>
+    </div>
+
+    <!-- GPT Pop-up Window -->
+    <div class="gpt-popup" id="gptPopup">
+        <div class="gpt-popup-header">
+            Chat with GPT
+        </div>
+        <div class="gpt-popup-body">
+            <!-- Content for GPT will go here -->
+            <p>Hello! How can I assist you with your courses?</p>
+        </div>
+        <div class="gpt-popup-footer">
+            <input type="text" placeholder="Ask a question..." id="gptInput">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <button class="gpt-open-btn" onclick="openPopup()">💬</button>
+
+    <script>
+        function openPopup() {
+            document.getElementById("gptPopup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("gptPopup").style.display = "none";
+        }
+
+        function sendMessage() {
+            var input = document.getElementById("gptInput").value;
+            if (input.trim() === "") {
+                alert("Please enter a message!");
+                return;
+            }
+            // Display the message inside the popup (for now, you can add GPT API logic here)
+            var message = document.createElement("p");
+            message.textContent = "You: " + input;
+            document.querySelector(".gpt-popup-body").appendChild(message);
+            document.getElementById("gptInput").value = ""; // Clear the input after sending
+        }
+    </script>
+
+</body>
+</html>

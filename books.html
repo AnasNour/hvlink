@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #1e90ff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar h1 {
+            color: white;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .toolbar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #0073e6;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+        .toolbar a:hover {
+            background-color: #005bb5;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            align-items: center;
+        }
+
+        .search-container input {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 10px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #005bb5;
+        }
+
+        .book-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .book-item {
+            width: 30%;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .book-item img {
+            width: 150px;
+            height: 200px;
+        }
+
+        .book-item button {
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .book-item button:hover {
+            background-color: #005bb5;
+        }
+
+        .book-details {
+            display: none;
+            margin: 20px;
+        }
+
+        .book-details img {
+            width: 150px;
+            height: 200px;
+        }
+
+        .book-info {
+            margin: 20px;
+        }
+
+        .buy-btn {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Welcome to Students</h1>
+        <div class="toolbar">
+            <a href="index.html">HOME</a>
+            <a href="programs.html">PROGRAMS</a>
+            <a href="books.html">BOOKS</a>
+            <a href="profile.html">PROFILE</a>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search by ISBN or Name of the book">
+        <button>Search</button>
+        <button>Upload book to sell</button>
+    </div>
+
+    <div class="book-grid">
+        <!-- Repeat book items here -->
+        <div class="book-item" onclick="showBookDetails('Python', '12345', 'John Doe', '$50', 'johndoe@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Python</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Linear Algebra', '67890', 'Jane Smith', '$40', 'janesmith@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Linear Algebra</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Software Engineering', '11223', 'Robert Brown', '$60', 'robertbrown@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Software Engineering</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Data Structures', '44556', 'Michael White', '$55', 'michaelwhite@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Data Structures</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Operating Systems', '77889', 'Sarah Johnson', '$70', 'sarahjohnson@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Operating Systems</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Artificial Intelligence', '99001', 'Emily Davis', '$80', 'emilydavis@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Artificial Intelligence</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Database Systems', '22334', 'William Wilson', '$45', 'williamwilson@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Database Systems</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Networking', '55667', 'Olivia Martin', '$35', 'oliviamartin@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Networking</p>
+            <button>View Details</button>
+        </div>
+        <div class="book-item" onclick="showBookDetails('Machine Learning', '88990', 'Liam Anderson', '$90', 'liamanderson@mail.com')">
+            <img src="book.png" alt="Book Cover">
+            <p>Machine Learning</p>
+            <button>View Details</button>
+        </div>
+    </div>
+
+    <div class="book-details" id="bookDetails">
+        <img id="bookCover" src="book.png" alt="Book Cover">
+        <div class="book-info">
+            <h2 id="bookTitle">Book Title</h2>
+            <p><strong>ISBN:</strong> <span id="isbnNumber">12345</span></p>
+            <p><strong>Seller:</strong> <span id="sellerName">John Doe</span></p>
+            <p><strong>Price:</strong> <span id="price">$50</span></p>
+            <p><strong>Contact:</strong> <span id="contact">johndoe@mail.com</span></p>
+            <button class="buy-btn">Buy</button>
+        </div>
+    </div>
+
+    <script>
+        function showBookDetails(title, isbn, seller, price, contact) {
+            document.getElementById('bookTitle').innerText = title;
+            document.getElementById('isbnNumber').innerText = isbn;
+            document.getElementById('sellerName').innerText = seller;
+            document.getElementById('price').innerText = price;
+            document.getElementById('contact').innerText = contact;
+            document.getElementById('bookDetails').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

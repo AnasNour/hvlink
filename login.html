@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #1e90ff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar h1 {
+            color: white;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .toolbar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #0073e6;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+        .toolbar a:hover {
+            background-color: #005bb5;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            display: inline-block;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Welcome to Students</h1>
+        <div class="toolbar">
+            <a href="index.html">HOME</a>
+            <a href="programs.html">PROGRAMS</a>
+            <a href="books.html">BOOKS</a>
+            <a href="profile.html">PROFILE</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Login</h2>
+        <form action="submit_login">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="signup.html">Register</a></p>
+        </form>
+    </div>
+</body>
+</html>
